@@ -1,0 +1,102 @@
+<header>
+    <nav class="top-5 fixed flex justify-evenly items-center w-[72rem] p-2 bg-[#232234] bg-opacity-80 rounded-full backdrop:filter backdrop-blur-sm left-1/2 transform -translate-x-1/2 z-20">
+        <h1><a href="#">Inicio</a></h1>
+        <h1><a href="#interview">Encuestas</a></h1>
+        <h1><a href="#consume">Consumo</a></h1>
+        <h1><a href="#fonts">Fuentes</a></h1>
+        <h1><a href="#health">Salud</a></h1>
+        <h1>Medioambiente</h1>
+        <h1>ODS</h1>
+        <h1>Alternativas</h1>
+        <h1>Vídeo</h1>
+        <h1>Webgrafía</h1>
+    </nav>
+    <div class="mobile fixed left-5 w-10 h-10 top-5">
+        <img src="menu.svg" alt="Menu icon to open menu options">
+    </div>
+</header>
+
+<style>
+    h1 {
+        border-radius: 9999px;
+        transition: 0.3s;
+        padding: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        color: rgb(221, 221, 221);
+    }
+
+    h1:hover {
+        color: rgb(255, 255, 255);
+        transform: scale(1.05);
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    nav.mobileMode {
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        height: 100vh;
+        border-radius: 0;
+        top: 0;
+        z-index: 20;
+        align-items: center;
+        padding: 0;
+    }
+
+    nav.mobileMode h1 {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        border-radius: 0;
+        width: 100%;
+        height: 50px;
+        animation: appear.3s ease-in-out forwards;
+    }
+
+    .mobile {
+        z-index: 25;
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateX(-1000px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @media screen and (max-width: 965px) {
+        nav {
+            display: none;
+        }
+        .mobile {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: 1190px) {
+        nav {
+            width: 60rem;
+        }
+    }
+</style>
+
+<script>
+    const menu = document.querySelector(".mobile");
+    menu.addEventListener("click", () => {
+        const nav = document.querySelector("nav");
+        nav.classList.toggle("mobileMode");
+    });
+</script>
+
+
+

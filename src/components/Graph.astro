@@ -1,0 +1,185 @@
+<head>
+    <script>
+        import Chart from 'chart.js/auto'
+        Chart.defaults.color = '#ffffff';
+
+        (async function() {
+        const data_1 = [
+            { year: "Coche", value: 14 },
+            { year: "Transporte público", value: 1 },
+            { year: "Andando", value: 22 },
+        ];
+
+        new Chart(
+            document.getElementById('graph1'),
+            {
+            type: 'pie',
+            data: {
+                labels: data_1.map(row => row.year),
+                datasets: [
+                {
+                    data: data_1.map(row => row.value)
+                }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                    display: true,
+                    text: "¿En qué medio de transporte van al instituto?"
+                    }
+                }
+            }
+            }
+        );
+        })();
+        (async function() {
+        const data_2 = [
+            { year: "Sí", value: 4 },
+            { year: "No", value: 27 },
+        ];
+
+        new Chart(
+            document.getElementById('graph2'),
+            {
+            type: 'pie',
+            data: {
+                labels: data_2.map(row => row.year),
+                datasets: [
+                {
+                    data: data_2.map(row => row.value)
+                }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                    display: true,
+                    text: "¿Si van en coche, es eléctrico / híbrido?"
+                    }
+                }
+            }
+            }
+        );
+        })();
+        (async function() {
+        const data_3 = [
+            { year: "Sí", value: 16 },
+            { year: "No", value: 19 },
+        ];
+
+        new Chart(
+            document.getElementById('graph3'),
+            {
+            type: 'pie',
+            data: {
+                labels: data_3.map(row => row.year),
+                datasets: [
+                {
+                    data: data_3.map(row => row.value)
+                }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                    display: true,
+                    text: "¿Saben aproximadamente cuanto CO2 emite un coche?"
+                    }
+                }
+            }
+            }
+        );
+        })();
+        (async function() {
+        const data_4 = [
+            { year: "Comodidez", value: 4 },
+            { year: "Rapidez", value: 7 },
+            { year: "Larga distancia", value: 13 },
+        ];
+
+        new Chart(
+            document.getElementById('graph4'),
+            {
+            type: 'pie',
+            data: {
+                labels: data_4.map(row => row.year),
+                datasets: [
+                {
+                    data: data_4.map(row => row.value)
+                }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                    display: true,
+                    text: "Si van en coche, ¿por qué razón?"
+                    }
+                }
+            }
+            }
+        );
+        })();
+        (async function() {
+        const data_5 = [
+            { year: "Sí", value: 27 },
+            { year: "No", value: 19 },
+        ];
+
+        new Chart(
+            document.getElementById('graph5'),
+            {
+            type: 'pie',
+            data: {
+                labels: data_5.map(row => row.year),
+                datasets: [
+                {
+                    data: data_5.map(row => row.value)
+                }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                    display: true,
+                    text: "¿Si el bus fuese más barato lo usarías más?"
+                    }
+                }
+            }
+            }
+        );
+        })();
+    </script>
+</head>
+<body>
+    <div class="gap-8 mt-10 containerG">
+        <div class="graph animated-2"><canvas id="graph1"></canvas></div>
+        <div class="graph animated-3"><canvas id="graph2"></canvas></div>
+        <div class="graph animated-2"><canvas id="graph3"></canvas></div>
+        <div class="graph animated-3"><canvas id="graph4"></canvas></div>
+        <div class="graph animated-2"><canvas id="graph5"></canvas></div>
+    </div>
+
+    <style>
+        .graph {
+            width: 350px;
+        }
+
+        .containerG {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media screen and (max-width: 877px) {
+            .containerG {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+
+    <script type="module" src="acquisitions.js"></script>
+</body>

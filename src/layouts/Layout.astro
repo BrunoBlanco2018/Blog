@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import Header from '../components/Header.astro';
 ---
 
 <!doctype html>
@@ -16,27 +17,21 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] flex items-center justify-center">
+		<Header/>
+		<main class="mx-auto">
+			<slot />
+		</main>
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		color-scheme: dark light;
+		background: #0a0a0a;
+		scroll-behavior: smooth;
+		overflow-x: hidden;
 	}
+
 	code {
 		font-family:
 			Menlo,
@@ -48,4 +43,84 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
+
+	section {
+		margin-top: 100px;
+	}
+
+	main {
+		max-width: 72rem;
+	}
+
+	.animated {
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+        animation-timeline: --image;
+        animation-name: show;
+        animation-range: entry 25% cover 30%;
+        animation-fill-mode: both;
+    }
+
+	.animated-2 {
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+        animation-timeline: --image;
+        animation-name: show-2;
+        animation-range: entry 25% cover 30%;
+        animation-fill-mode: both;
+    }
+
+	.animated-3 {
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+        animation-timeline: --image;
+        animation-name: show-3;
+        animation-range: entry 25% cover 30%;
+        animation-fill-mode: both;
+    }
+
+	@media screen and (max-width: 1190px) {
+        main {
+			max-width: 60rem;
+		}
+    }
+
+	@media screen and (max-width: 585px) {
+        main {
+            max-width: 20rem;
+        }
+    }
+
+	@keyframes show {
+        from {
+            opacity: 0;
+            scale: 25%;
+        }
+        to {
+            opacity: 1;
+            scale: 100%;
+        }
+    }
+
+	@keyframes show-2 {
+        from {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+	@keyframes show-3 {
+        from {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 </style>
