@@ -17,6 +17,24 @@
             <li><a href="#webgraphy">Webgrafía</a></li>
         </ul>
     </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const secciones = document.querySelector('.secciones');
+            const submenu = document.querySelector('.submenu');
+
+            secciones.addEventListener('click', function(event) {
+                event.preventDefault();
+                submenu.classList.toggle('submenu-visible');
+            });
+
+            // Cerrar el submenú al hacer clic en cualquier otro lugar
+            document.addEventListener('click', function(event) {
+                if (!secciones.contains(event.target)) {
+                    submenu.classList.remove('submenu-visible');
+                }
+            });
+        });
+    </script>
 </header>
 
 <style>
@@ -38,7 +56,7 @@
     ul ul {
         display:none;
         position:absolute;
-        top:100%;
+        top:110%;
         left:0;
         background:#191924;
         padding:0;
@@ -72,6 +90,9 @@
             opacity: 1;
             transform: scale(1);
         }
+    }
+    .submenu-visible {
+        display: block;
     }
 </style>
 
