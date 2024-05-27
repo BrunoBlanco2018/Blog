@@ -1,23 +1,26 @@
 <header>
-    <nav class="top-5 fixed flex justify-evenly items-center w-[72rem] p-2 bg-[#232234] bg-opacity-80 rounded-full backdrop:filter backdrop-blur-sm left-1/2 transform -translate-x-1/2 z-20">
-        <h1><a href="#">Inicio</a></h1>
-        <h1><a href="#interview">Encuestas</a></h1>
-        <h1><a href="#consume">Consumo</a></h1>
-        <h1><a href="#fonts">Fuentes</a></h1>
-        <h1><a href="#health">Salud</a></h1>
-        <h1><a href="#enviroment">Medioambiente</a></h1>
-        <h1><a href="#ODS">ODS</a></h1>
-        <h1><a href="#alternatives">Alternativas</a></h1>
-        <h1><a href="#video">Vídeo</a></h1>
-        <h1><a href="#webgraphy">Webgrafía</a></h1>
+    <nav class="top-5 fixed flex justify-evenly items-center w-fit p-2 bg-[#232234] bg-opacity-80 rounded-full backdrop:filter backdrop-blur-sm left-1/2 transform -translate-x-1/2 z-20">
+        <ul class="flex items-center justify-evenly">
+            <li><a href="#">Inicio</a></li>
+            <li>Secciones
+                <ul class="rounded-lg">
+                    <li><a href="#interview">Encuestas</a></li>
+                    <li><a href="#consume">Consumo</a></li>
+                    <li><a href="#fonts">Fuentes</a></li>
+                    <li><a href="#health">Salud</a></li>
+                    <li><a href="#enviroment">Medioambiente</a></li>
+                    <li><a href="#ODS">ODS</a></li>
+                    <li><a href="#alternatives">Alternativas</a></li>
+                </ul>
+            </li>
+            <li><a href="#video">Vídeo</a></li>
+            <li><a href="#webgraphy">Webgrafía</a></li>
+        </ul>
     </nav>
-    <div class="mobile fixed left-5 w-10 h-10 top-5">
-        <img src="menu.svg" alt="Menu icon to open menu options">
-    </div>
 </header>
 
 <style>
-    h1 {
+    li {
         border-radius: 9999px;
         transition: 0.3s;
         padding: 8px;
@@ -26,77 +29,52 @@
         color: rgb(221, 221, 221);
     }
 
-    h1:hover {
+    ul {
+        list-style: none;
+        margin:0;
+        padding:0;
+    }
+
+    ul ul {
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        background:#191924;
+        padding:0;
+    }
+
+    ul ul li {
+        float:none;
+        width:140px
+    }
+
+    ul li:hover > ul {
+        animation: appearSubMenu .2s ease-in-out;
+        display:block;
+    }
+
+    ul ul li:hover {
+        transform: scale(1);
+        color: #c9f2ff;
+    }
+
+    li:hover {
         color: rgb(255, 255, 255);
         transform: scale(1.05);
     }
-
-    .mobile {
-        display: none;
-    }
-
-    nav.mobileMode {
-        display: flex;
-        flex-direction: column;
-        width: 100vh;
-        height: 100vh;
-        border-radius: 0;
-        top: 0;
-        z-index: 20;
-        align-items: center;
-        padding: 0;
-    }
-
-    nav.mobileMode h1 {
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: black;
-        border-radius: 0;
-        width: 100%;
-        height: 50px;
-        animation: appear.3s ease-in-out forwards;
-    }
-
-    .mobile {
-        z-index: 25;
-    }
-
-    @keyframes appear {
+    @keyframes appearSubMenu {
         from {
             opacity: 0;
-            transform: translateX(-1000px);
+            transform: scale(0.8);
         }
         to {
             opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    @media screen and (max-width: 965px) {
-        nav {
-            display: none;
-        }
-        .mobile {
-            display: block;
-        }
-    }
-
-    @media screen and (max-width: 1190px) {
-        nav {
-            width: 60rem;
+            transform: scale(1);
         }
     }
 </style>
 
-<script>
-    const menu = document.querySelector(".mobile");
-    menu.addEventListener("click", () => {
-        const nav = document.querySelector("nav");
-        nav.classList.toggle("mobileMode");
-    });
-</script>
 
 
 
