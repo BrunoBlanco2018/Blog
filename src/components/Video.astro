@@ -5,12 +5,18 @@
             <br>VIDEO<br> 
             —
         </h1>
-        <iframe class="rounded-xl mt-20" width="1152" height="600" src="https://www.youtube.com/watch?v=DdFPypUQCvA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <a id="img" class="w-full h-[30rem] rounded-lg mt-20" href="https://www.youtube.com/watch?v=DdFPypUQCvA&ab_channel=BrunoBlancoPerez" target="_blank"></a>
     </div>
 </section>
 
 <style>
-    @media (max-width: 810pxno) {
+    #img {
+        background-image: url("https://imagenes.elpais.com/resizer/v2/BF2ZYM52RVEH3MEIJ4R3ETUHGA.jpg?auth=9f4c7d173d40fc1dbdd6c53e0122b0f4a2d56c03735035df65c225b10d97aa3f&width=414&height=233&focal=2193%2C1103");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    @media (max-width: 610) {
         iframe {
             width: 100%;
         }
